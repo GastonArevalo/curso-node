@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 
-const createFile = (base = 5) =>{
+const createFile = (base = 5, list = false) =>{
 
     return new Promise( (resolve, reject) =>{
 
@@ -9,7 +9,7 @@ const createFile = (base = 5) =>{
         for(let count = 1; count <= 10; count++){
             salida += `${base} x ${count} = ${base * count}\n`;
         }
-        console.log(salida);
+        if(list) console.log(salida);
         
         fs.writeFileSync(`tabla-${base}.txt`, salida)
         
